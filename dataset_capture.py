@@ -2,11 +2,14 @@
 import cv2
 import os
 
+
 def assure_path_exists(path):
     dir = os.path.dirname(path)
     if not os.path.exists(dir):
         os.makedirs(dir)
-face_id=input('enter your id')
+
+
+face_id = input('enter your id')
 # Start capturing video 
 vid_cam = cv2.VideoCapture(0)
 
@@ -50,7 +53,7 @@ while(True):
         break
 
     # If image taken reach 100, stop taking video
-    elif count>=40:
+    elif count >= 60:
         print("Successfully Captured")
         break
 

@@ -24,7 +24,7 @@ def output(filename, sheet,num, name, present):
     my_file = Path('firebase/attendance_files/'+filename+str(datetime.now().date())+'.xls');
     if my_file.is_file():
         rb = open_workbook('firebase/attendance_files/'+filename+str(datetime.now().date())+'.xls');
-        book = copy(rb);
+        book = copy(rb)
         sh = book.get_sheet(0)
         # file exists
     else:
@@ -39,20 +39,18 @@ def output(filename, sheet,num, name, present):
     #y_desc = 'Dominance'
     #z_desc = 'Test'
     #desc = [x_desc, y_desc, z_desc]
-    sh.write(0,0,datetime.now().date(),style1);
-
+    sh.write(0, 0, datetime.now().date(), style1)
 
     col1_name = 'Name'
     col2_name = 'Present'
-
 
     sh.write(1,0,col1_name,style0);
     sh.write(1, 1, col2_name,style0);
 
     sh.write(num+1,0,name);
     sh.write(num+1, 1, present);
-    #You may need to group the variables together
-    #for n, (v_desc, v) in enumerate(zip(desc, variables)):
-    fullname=filename+str(datetime.now().date())+'.xls';
+    # You may need to group the variables together
+    # for n, (v_desc, v) in enumerate(zip(desc, variables)):
+    fullname = filename+str(datetime.now().date())+'.xls';
     book.save('firebase/attendance_files/'+fullname)
-    return fullname;
+    return fullname
